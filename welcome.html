@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="view" content="width=device-width, initial-scale=1.10, shrink-to-fit=no"/>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="media/css/stylesheet.css">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+  <div class="container">
+    <h1 id="italic" >Welcome</h1>
+  <div class="row">
+  <form class="form-signin" action="....." method="POST">
+    <button class="btn btn-lg btn-primary btn-block" id="loginbutton" type="button" name="button" onclick="$(this).login();">Login</button>
+    <div id="hide">
+      <h1 class="h3 mb-3 font-weight-bold" style="padding-left: 65px;">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="click_test">Sign in</button>
+        <a href="cuser.html" class="btn btn-lg btn-primary btn-block" id="color_change">Create user</a>
+        <p class="test mt-5 mb-3" >&copy; 2019</p>
+  </form>
+</div>
+</div>
+</div>
+<div class="push"></div>
+</div>
+<footer class="footer" style="text-align:center;">
+<span style="color: #e2e3e5;">&copy;2019 Grupp14. Built using Bootstrap. Contact us on email: grupp14@gmail.com</span>
+</footer>
+<script type="text/javascript">
+$(function () {
+  $.fn.login = function () {
+    $("#hide").css("display","inline");
+    $("#loginbutton").css("display","none");
+  }
+  $("#click_test").on('click', function(){
+    window.location.replace("users.html");
+    });
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

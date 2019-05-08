@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="media/css/stylesheet.css">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+          <a class="navbar-brand" href="#"><img src="media/css/image/login_logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="users.html">Home</a>
+                <a class="nav-item nav-link" href="activity.html">Activity</a>
+                <a class="nav-item nav-link active" href="#">Personal</a>
+                <a class="nav-item nav-link" href="weather.html">Weather</a>
+                <a class="nav-item nav-link" href="rest.html">Sleep</a>
+                <a class="nav-item nav-link" href="welcome.html">Logout</a>
+              </div>
+            </div>
+        </nav>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-sm">
+      <button class="btn btn-lg btn-primary btn-block" type="button" id="click_test" onclick="$(this).personal();" >Information</button>
+      <div class="card-deck">
+      <div id="here"></div>
+      <div id="here1"></div>
+      </div>
+      </div>
+      </div>
+      <div class="push"></div>
+      </div>
+      <footer class="footer" style="text-align:center;"><span style="color: #e2e3e5;">&copy;2019 Grupp14. Built using Bootstrap. Contact us on email: grupp14@gmail.com</span></footer>
+  <script type="text/javascript">
+  $(function () {
+    $.fn.personal = function () {
+      $.getJSON('history.json', function(data) {
+        console.log(data["history"][0]["left_side"])
+      $(data["history"][0]["left_side"]).each(function(index,value) {
+        var $d = $("<div class='card'></div>");
+        var $db = $("<div class='card-body'></div>");
+        var $w = $("<div class='well'></div>");
+        var $h = $("<h4 class='card-title'>"+ value.name +" "+ value.age +"</h4>");
+        var $da = $("<h5 class='card-text'>" + value.date +"</h5>")
+        var $p = $("<p class='card-text'>"+ value.bodyweight + " " + value.fet + " " + value.bmi + " " + value.waistline+ " " + "</p>");
+        $("#here").append($d);
+        $($d).append($db);
+        $($db).append($w);
+        $($w).append($h);
+        $($w).append($da);
+        $($w).append($p);
+        $("#click_test").css('display','none');
+      })
+      })
+      $.getJSON('history.json', function(data) {
+        console.log(data["history"][0]["left_side"])
+      $(data["history"][1]["right_side"]).each(function(index,value) {
+        var $d = $("<div class='card'></div>");
+        var $db = $("<div class='card-body'></div>");
+        var $w = $("<div class='well'></div>");
+        var $h = $("<h4 class='card-title'>"+ value.name +" "+ value.age +"</h4>");
+        var $da = $("<h5 class='card-text'>" + value.date +"</h5>")
+        var $p = $("<p class='card-text'>"+ value.bodyweight + " " + value.fet + " " + value.bmi + " " + value.waistline+ " " + "</p>");
+        $("#here1").append($d);
+        $($d).append($db);
+        $($db).append($w);
+        $($w).append($h);
+        $($w).append($da);
+        $($w).append($p);
+        $("#click_test").css('display','none');
+      })
+      })};
+  });
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="media/css/stylesheet.css">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+          <a class="navbar-brand" href="#"><img src="media/css/image/login_logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="users.html">Home </a>
+                <a class="nav-item nav-link" href="activity.html">Activity</a>
+                <a class="nav-item nav-link" href="personal.html">Personal</a>
+                <a class="nav-item nav-link active" href="#">Weather <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="rest.html">Sleep</a>
+                <a class="nav-item nav-link" href="welcome.html">Logout</a>
+              </div>
+            </div>
+        </nav>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <h1 id="input"></h1>
+            <div id="cont_1c7ee4c408bc624d582e31ae7236b2a2"></div><br>
+            <div style="margin:auto; text-align: center;"><iframe id="clock" scrolling="no" frameborder="no" clocktype=\"html5\" style="overflow:hidden;border:0;margin:0;padding:0;width:480px;height:250px; margin: auto;" src="https://www.clocklink.com/clocks/HTML5/html5-world.html?Stockholm&Tokyo&New_York&1200&gray"></iframe></div>
+          <div class="mapouter" style="margin:auto;"><div class="gmap_canvas"><iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=halmstad&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Google Maps Generator by <a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+          </div>
+        </div>
+      </div>
+      <div class="push"></div>
+      </div>
+      <footer class="footer" style="text-align:center;"><span style="color: #e2e3e5;">&copy;2019 Grupp14. Built using Bootstrap. Contact us on email: grupp14@gmail.com</span></footer>
+  <script type="text/javascript">
+    var dateObject = new Date(); //input a date here to test
+    var redDay = dateObject.toDateString();
+    function add(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+    function getTime() {
+      var h = add(dateObject.getHours());
+      var m = add(dateObject.getMinutes());
+      var s = add(dateObject.getSeconds());
+      var x = h + "." + m + "." + s;
+      return x
+    }
+    var now = getTime();
+    document.getElementById("input").innerHTML = redDay
+  </script>
+  <script type="text/javascript" async src="https://www.theweather.com/wid_loader/1c7ee4c408bc624d582e31ae7236b2a2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

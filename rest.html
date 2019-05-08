@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="media/css/stylesheet.css">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container" style="background-color:rgb(211,211,211, .6) ;">
+      <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+          <a class="navbar-brand" href="#"><img src="media/css/image/login_logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="users.html">Home</a>
+                <a class="nav-item nav-link" href="activity.html">Activity</a>
+                <a class="nav-item nav-link" href="personal.html">Personal</a>
+                <a class="nav-item nav-link" href="weather.html">Weather</a>
+                <a class="nav-item nav-link active" href="#">Sleep <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="welcome.html">Logout</a>
+              </div>
+            </div>
+        </nav>
+      </div>
+      <div class="row">
+      <div class="col-sm">
+        <br>
+        <h5 id="input">Sleep</h5>
+        <div id="specificChart" class="donut-size">
+    <div class="pie-wrapper">
+      <span class="label">
+          <span class="num">0</span><span class="smaller">%</span>
+      </span>
+      <div class="pie">
+        <div class="left-side half-circle"></div>
+        <div class="right-side half-circle"></div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <input type="number" id="percent" value="67">
+<label id="donut"><input type="checkbox" checked> <span>Donut</span></label>
+      </div>
+      </div>
+      </div>
+      <div class="push"></div>
+      </div>
+      <footer class="footer" style="text-align:center;"><span style="color: #e2e3e5;">&copy;2019 Grupp14. Built using Bootstrap. Contact us on email: grupp14@gmail.com</span></footer>
+  <script type="text/javascript">
+  function updateDonutChart (el, percent, donut) {
+    percent = Math.round(percent);
+    if (percent > 100) {
+        percent = 100;
+    } else if (percent < 0) {
+        percent = 0;
+    }
+    var deg = Math.round(360 * (percent / 100));
+
+    if (percent > 50) {
+        $(el + ' .pie').css('clip', 'rect(auto, auto, auto, auto)');
+        $(el + ' .right-side').css('transform', 'rotate(180deg)');
+    } else {
+        $(el + ' .pie').css('clip', 'rect(0, 1em, 1em, 0.5em)');
+        $(el + ' .right-side').css('transform', 'rotate(0deg)');
+    }
+    if (donut) {
+        $(el + ' .right-side').css('border-width', '0.1em');
+        $(el + ' .left-side').css('border-width', '0.1em');
+        $(el + ' .shadow').css('border-width', '0.1em');
+    } else {
+        $(el + ' .right-side').css('border-width', '0.5em');
+        $(el + ' .left-side').css('border-width', '0.5em');
+        $(el + ' .shadow').css('border-width', '0.5em');
+    }
+    $(el + ' .num').text(percent);
+    $(el + ' .left-side').css('transform', 'rotate(' + deg + 'deg)');
+}
+$('#percent').change(function () {
+    var percent = $(this).val();
+    var donut = $('#donut input').is(':checked');
+    updateDonutChart('#specificChart', percent, donut);
+}).keyup(function () {
+    var percent = $(this).val();
+    var donut = $('#donut input').is(':checked');
+    updateDonutChart('#specificChart', percent, donut);
+});;
+
+$('#donut input').change(function () {
+    var donut = $('#donut input').is(':checked');
+    var percent = $("#percent").val();
+    if (donut) {
+        $('#donut span').html('Donut');
+    } else {
+        $('#donut span').html('Pie');
+    }
+    updateDonutChart('#specificChart', percent, donut);
+});
+
+
+// Pass in a number for the percent
+updateDonutChart('#specificChart', 99.100, true);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
